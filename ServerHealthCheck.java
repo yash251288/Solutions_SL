@@ -13,7 +13,7 @@ public class ServerHealthCheck extends Thread{
 	List<Character> listToStoreResponse = new ArrayList<Character>();
 	static  String url= "http://localhost:12345";
 
-	//Currently I am  using Main thead, but this can be done by creating a new thread.
+	
 	public static void main (String args[]) throws IOException {
 
 		ServerHealthCheck object = new ServerHealthCheck();
@@ -96,7 +96,7 @@ public class ServerHealthCheck extends Thread{
 
 	private void checkServerIsUp() throws ConnectException,IOException {
 		Socket socket = null;
-		String server = "localhost";
+		String server = "localhost";// currently hard coding , but can be read through a source
 		int port = 12345;
 
 		try {
