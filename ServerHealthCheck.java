@@ -17,6 +17,7 @@ public class ServerHealthCheck extends Thread{
 	public static void main (String args[]) throws IOException {
 
 		ServerHealthCheck object = new ServerHealthCheck();
+		//object.setDaemon(true);
 		object.start();
  
 	}
