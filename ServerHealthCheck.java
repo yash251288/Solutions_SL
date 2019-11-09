@@ -9,18 +9,27 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class ServerHealthCheck {
+public class ServerHealthCheck extends Thread{
 	List<Character> listToStoreResponse = new ArrayList<Character>();
 	static  String url= "http://localhost:12345";
 
 	//Currently I am  using Main thead, but this can be done by creating a new thread.
-	public static void main(String args[]) throws IOException {
+	public static void main (String args[]) throws IOException {
 
 		ServerHealthCheck object = new ServerHealthCheck();
-		object.waitMethod();
+		object.start();
  
 	}
 
+	public void run()
+	{
+		try {
+			waitMethod();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
 	private synchronized void waitMethod() throws IOException,ConnectException{
 
 		while (true) {
